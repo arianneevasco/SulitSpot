@@ -1,0 +1,29 @@
+import { Stack } from 'expo-router';
+import { ActivityIndicator, View } from 'react-native';
+import { useAuth } from '../hooks/useAuth';
+
+export default function RootLayout() {
+  const { user, loading } = useAuth();
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+  return (
+    <Stack>
+      {user ? (
+        <>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="add" />
+          <Stack.Screen name="detail" />
+          <Stack.Screen name="edit" />
+        </>
+      ) : (
+        <Stack.Screen name="auth" options={{ headerShown: false }} />
+      )}
+    </Stack>
+  );
+}
