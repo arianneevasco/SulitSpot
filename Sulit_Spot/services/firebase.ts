@@ -3,6 +3,7 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth, connectAuthEmulator } from 'firebase/auth';
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
+import { connectFirestoreEmulator } from 'firebase/firestore';
 
 const {
   FIREBASE_API_KEY = '',
@@ -32,6 +33,7 @@ const db   = getFirestore(app);
 // ── Connect to emulators in development ───────────────────────────────────────
 if (__DEV__) {
   connectAuthEmulator(auth, 'http://localhost:9099');
+  connectFirestoreEmulator(db, 'localhost', 8080);
   connectFunctionsEmulator(getFunctions(app), 'localhost', 5001);
 }
 
