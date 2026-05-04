@@ -1,53 +1,53 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-import { Platform } from 'react-native';
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
-  },
+  // Main
+  primary: '#4ECBA9',
+  background: '#F5F5F5',
+  white: '#FFFFFF',
+
+  // Text
+  textPrimary: '#000000',
+  textSecondary: '#888888',
+  textGreen: '#4ECBA9',
+  // Inputs & Borders
+  inputBorder: '#D3D3D3',
+  inputBackground: '#FFFFFF',
+  placeholder: '#A9A9A9',
+
+  // Buttons
+  buttonBorder: '#000000',
+  buttonText: '#000000',
+
+  // Tags (home screen: All, Food, Items, Tips)
+  tagBackground: '#FFFFFF',
+  tagSelected: '#4ECBA9',
+  tagText: '#000000',
+
+  // Bottom Nav
+  navActive: '#4ECBA9',
+  navInactive: '#888888',
+
+  // Divider
+  divider: '#D3D3D3',
 };
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  },
-});
+export const FontSizes = {
+  brand: 28,
+  tagline: 12,
+  heading: 18,
+  label: 14,
+  body: 13,
+  small: 11,
+  button: 16,
+  link: 13,
+};
+
+export const Spacing = {
+  headerHeight: 160,
+  cardRadius: 10,
+  inputRadius: 8,
+  buttonRadius: 8,
+  tagRadius: 20,
+  inputPadding: 12,
+  cardPadding: 12,
+  sectionGap: 16,
+};
