@@ -1,5 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Colors, FontSizes, Spacing } from '@/constants/theme';
 
 export default function SignUpScreen() {
     const router = useRouter();
@@ -38,29 +39,29 @@ export default function SignUpScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: '#fff' },
-    topLabel: { paddingTop: 52, paddingLeft: 24, fontSize: 13, color: '#aaa' },
+    container: { flex: 1, backgroundColor: Colors.white },
+    topLabel: { paddingTop: 52, paddingLeft: 24, fontSize: FontSizes.small, color: '#aaa' },
     header: {
-        backgroundColor: '#4ecba5',
-        height: 180,
+        backgroundColor: Colors.primary,
+        height: Spacing.headerHeight,
         borderBottomLeftRadius: 60,
         borderBottomRightRadius: 60,
         justifyContent: 'flex-end',
         alignItems: 'center',
         paddingBottom: 24,
     },
-    title: { fontSize: 28, fontWeight: '600', color: '#fff' },
+    title: { fontSize: FontSizes.brand, fontWeight: '600', color: Colors.white },
     form: { padding: 24 },
-    label: { fontSize: 13, color: '#555', marginBottom: 4 },
+    label: { fontSize: FontSizes.small, color: '#555', marginBottom: 4 },
     input: {
-        borderWidth: 1, borderColor: '#ddd', borderRadius: 8,
-        padding: 10, marginBottom: 16, fontSize: 14,
+        borderWidth: 1, borderColor: Colors.inputBorder, borderRadius: Spacing.inputRadius,
+        padding: Spacing.inputPadding, marginBottom: 16, fontSize: FontSizes.label,
     },
     loginBtn: {
-        backgroundColor: '#4ecba5', borderRadius: 8,
+        backgroundColor: Colors.primary, borderRadius: Spacing.buttonRadius,
         padding: 14, alignItems: 'center', marginBottom: 12,
     },
-    loginText: { color: '#fff', fontWeight: '600' },
-    signupText: { textAlign: 'center', fontSize: 13, color: '#777' },
-    link: { color: '#4ecba5', fontWeight: '600' },
+    loginText: { color: Colors.white, fontWeight: '600' },
+    signupText: { textAlign: 'center', fontSize: FontSizes.small, color: '#777' },
+    link: { color: Colors.primary, fontWeight: '600' },
 });
