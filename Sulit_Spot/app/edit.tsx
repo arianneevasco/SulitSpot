@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { Colors, FontSizes, Spacing } from '@/constants/theme';
 
 const categories = ['Food', 'Items', 'Tips'];
 
@@ -46,7 +47,7 @@ export default function EditPostScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
-          <Ionicons name="chevron-back" size={20} color="#333" />
+          <Ionicons name="chevron-back" size={20} color={Colors.textPrimary} />
           <Text style={styles.backText}>Edit Post</Text>
         </TouchableOpacity>
       </View>
@@ -59,7 +60,7 @@ export default function EditPostScreen() {
           style={styles.input}
           value={title}
           onChangeText={setTitle}
-          placeholderTextColor="#ccc"
+          placeholderTextColor={Colors.placeholder}
         />
 
         {/* Category */}
@@ -86,7 +87,7 @@ export default function EditPostScreen() {
               style={styles.input}
               value={price}
               onChangeText={setPrice}
-              placeholderTextColor="#ccc"
+              placeholderTextColor={Colors.placeholder}
               keyboardType="numeric"
             />
           </View>
@@ -96,7 +97,7 @@ export default function EditPostScreen() {
               style={styles.input}
               value={location}
               onChangeText={setLocation}
-              placeholderTextColor="#ccc"
+              placeholderTextColor={Colors.placeholder}
             />
           </View>
         </View>
@@ -107,7 +108,7 @@ export default function EditPostScreen() {
           style={[styles.input, styles.textArea]}
           value={description}
           onChangeText={setDescription}
-          placeholderTextColor="#ccc"
+          placeholderTextColor={Colors.placeholder}
           multiline
           numberOfLines={3}
         />
@@ -129,7 +130,7 @@ export default function EditPostScreen() {
           onPress={handleConfirmAccuracy}
           disabled={submitting}
         >
-          <Ionicons name="checkmark-circle-outline" size={16} color="#4ecba5" />
+          <Ionicons name="checkmark-circle-outline" size={16} color={Colors.primary} />
           <Text style={styles.accurateBtnText}>Still accurate</Text>
         </TouchableOpacity>
 
@@ -140,10 +141,10 @@ export default function EditPostScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fff' },
-  topLabel: { paddingTop: 52, paddingLeft: 20, fontSize: 12, color: '#aaa', marginBottom: 8 },
+  container: { flex: 1, backgroundColor: Colors.white },
+  topLabel: { paddingTop: 52, paddingLeft: 20, fontSize: FontSizes.small, color: Colors.placeholder, marginBottom: 8 },
   header: {
-    backgroundColor: '#4ecba5',
+    backgroundColor: Colors.primary,
     paddingHorizontal: 20,
     paddingVertical: 16,
     borderBottomLeftRadius: 24,
@@ -151,35 +152,35 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   backBtn: { flexDirection: 'row', alignItems: 'center' },
-  backText: { fontSize: 16, fontWeight: '600', color: '#333', marginLeft: 4 },
+  backText: { fontSize: FontSizes.label, fontWeight: '600', color: Colors.textPrimary, marginLeft: 4 },
   body: { paddingHorizontal: 20 },
-  label: { fontSize: 13, color: '#555', marginBottom: 6, marginTop: 12 },
+  label: { fontSize: FontSizes.small, color: Colors.textSecondary, marginBottom: 6, marginTop: 12 },
   input: {
-    borderWidth: 1, borderColor: '#eee', borderRadius: 8,
-    padding: 10, fontSize: 13, color: '#333', backgroundColor: '#fff',
+    borderWidth: 1, borderColor: Colors.inputBorder, borderRadius: Spacing.inputRadius,
+    padding: Spacing.inputPadding, fontSize: FontSizes.small, color: Colors.textPrimary, backgroundColor: Colors.white,
   },
   textArea: { height: 80, textAlignVertical: 'top' },
   categoryRow: { flexDirection: 'row', gap: 10 },
   catBtn: {
-    flex: 1, paddingVertical: 8, borderRadius: 8,
-    borderWidth: 1, borderColor: '#eee', alignItems: 'center',
-    backgroundColor: '#fff',
+    flex: 1, paddingVertical: 8, borderRadius: Spacing.inputRadius,
+    borderWidth: 1, borderColor: Colors.inputBorder, alignItems: 'center',
+    backgroundColor: Colors.white,
   },
-  catBtnActive: { backgroundColor: '#4ecba5', borderColor: '#4ecba5' },
-  catText: { fontSize: 13, color: '#777' },
-  catTextActive: { color: '#fff', fontWeight: '600' },
+  catBtnActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
+  catText: { fontSize: FontSizes.small, color: Colors.textSecondary },
+  catTextActive: { color: Colors.white, fontWeight: '600' },
   row: { flexDirection: 'row', gap: 12 },
   halfField: { flex: 1 },
   saveBtn: {
-    backgroundColor: '#4ecba5', borderRadius: 8,
+    backgroundColor: Colors.primary, borderRadius: Spacing.buttonRadius,
     paddingVertical: 14, alignItems: 'center', marginTop: 20,
   },
-  saveBtnText: { color: '#fff', fontWeight: '600', fontSize: 14 },
+  saveBtnText: { color: Colors.white, fontWeight: '600', fontSize: FontSizes.label },
   accurateBtn: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-    borderWidth: 1, borderColor: '#4ecba5', borderRadius: 8,
+    borderWidth: 1, borderColor: Colors.primary, borderRadius: Spacing.buttonRadius,
     paddingVertical: 12, marginTop: 12, gap: 6,
   },
-  accurateBtnText: { color: '#4ecba5', fontWeight: '600', fontSize: 14 },
+  accurateBtnText: { color: Colors.primary, fontWeight: '600', fontSize: FontSizes.label },
   btnDisabled: { opacity: 0.5 },
 });
