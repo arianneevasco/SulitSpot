@@ -28,13 +28,13 @@ const app = getApps().length === 0
   : getApp();
 
 const auth = getAuth(app);
-const db   = getFirestore(app);
+const db = getFirestore(app);
 
 // ── Connect to emulators in development ───────────────────────────────────────
-if (__DEV__) {
-  connectAuthEmulator(auth, 'http://localhost:9099');
-  connectFirestoreEmulator(db, 'localhost', 8080);
-  connectFunctionsEmulator(getFunctions(app), 'localhost', 5001);
-}
+//if (__DEV__) {
+//connectAuthEmulator(auth, 'http://localhost:9099');
+//connectFirestoreEmulator(db, 'localhost', 8080);
+//connectFunctionsEmulator(getFunctions(app), 'localhost', 5001);
+//}
 
 export { app, db, auth };
