@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 const deals = [
   {
     id: '1',
-    title: 'Sioma rice for 50 pesos with 10 pcs',
+    title: 'Siomai rice for 50 pesos with 10 pcs',
     category: 'Food',
     location: 'Near Gate 2',
     price: 50,
