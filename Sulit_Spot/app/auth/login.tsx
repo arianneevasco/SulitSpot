@@ -1,6 +1,10 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView } from "react-native";
+import { useRouter } from 'expo-router';
+import { Colors, FontSizes, Spacing } from '@/constants/theme';
 
 export default function LoginPage() {
+    const router = useRouter();
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
@@ -18,7 +22,10 @@ export default function LoginPage() {
                 </TouchableOpacity>
 
                 <Text style={styles.signupText}>
-                    Don't have an account? <Text style={styles.link}>Sign up</Text>
+                    Don't have an account?{' '}
+                    <Text style={styles.link} onPress={() => router.push('/auth/register')}>
+                        Sign up
+                    </Text>
                 </Text>
 
                 <View style={styles.divider}>
@@ -35,38 +42,36 @@ export default function LoginPage() {
     );
 }
 
-const GREEN = "#3ECFAA";
-
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: "#fff" },
+    container: { flex: 1, backgroundColor: Colors.white },
     header: {
-        backgroundColor: GREEN,
-        height: 200,
+        backgroundColor: Colors.primary,
+        height: Spacing.headerHeight,
         borderBottomLeftRadius: 100,
         borderBottomRightRadius: 100,
         alignItems: "center",
         justifyContent: "center",
     },
-    brand: { fontSize: 28, fontWeight: "700", color: "#fff" },
+    brand: { fontSize: FontSizes.brand, fontWeight: "700", color: Colors.white },
     form: { paddingHorizontal: 24, paddingTop: 32 },
-    label: { fontSize: 13, color: "#666", marginBottom: 6 },
+    label: { fontSize: FontSizes.small, color: Colors.textSecondary, marginBottom: 6 },
     input: {
-        borderWidth: 0.5, borderColor: "#ccc", borderRadius: 10,
-        padding: 12, fontSize: 14, marginBottom: 16,
+        borderWidth: 0.5, borderColor: Colors.inputBorder, borderRadius: Spacing.inputRadius,
+        padding: Spacing.inputPadding, fontSize: FontSizes.label, marginBottom: 16,
     },
     loginBtn: {
-        backgroundColor: GREEN, borderRadius: 10,
+        backgroundColor: Colors.primary, borderRadius: Spacing.buttonRadius,
         padding: 14, alignItems: "center", marginBottom: 14,
     },
-    loginBtnText: { color: "#fff", fontWeight: "600", fontSize: 15 },
-    signupText: { textAlign: "center", fontSize: 13, color: "#666", marginBottom: 16 },
-    link: { color: GREEN, fontWeight: "600" },
+    loginBtnText: { color: Colors.white, fontWeight: "600", fontSize: FontSizes.button },
+    signupText: { textAlign: "center", fontSize: FontSizes.small, color: Colors.textSecondary, marginBottom: 16 },
+    link: { color: Colors.primary, fontWeight: "600" },
     divider: { flexDirection: "row", alignItems: "center", marginBottom: 16 },
-    line: { flex: 1, height: 0.5, backgroundColor: "#ddd" },
-    dividerText: { fontSize: 12, color: "#aaa", marginHorizontal: 8 },
+    line: { flex: 1, height: 0.5, backgroundColor: Colors.divider },
+    dividerText: { fontSize: FontSizes.small, color: Colors.placeholder, marginHorizontal: 8 },
     browseBtn: {
-        borderWidth: 0.5, borderColor: "#ccc", borderRadius: 10,
+        borderWidth: 0.5, borderColor: Colors.inputBorder, borderRadius: Spacing.buttonRadius,
         padding: 14, alignItems: "center",
     },
-    browseBtnText: { fontSize: 14, color: "#333" },
+    browseBtnText: { fontSize: FontSizes.label, color: Colors.textPrimary },
 });
