@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useCallback, useState } from "react";
 
 export type Category = {
     /** Unique identifier used in onChange callback */
@@ -123,10 +123,11 @@ export default function CategoryFilter({
             <div className="cf-row" role="group" aria-label="Filter by category">
 
                 {/* "All" chip */}
-                <button>
+                <button
                     type="button"
                     className={`cf-chip${isAll ? " cf-chip--on" : ""}`}
                     onClick={() => toggle(ALL_ID)}
+                >
                     aria-pressed={isAll}
 
                     All
@@ -143,11 +144,12 @@ export default function CategoryFilter({
                 {categories.map((cat) => {
                     const on = selected.has(cat.id);
                     return (
-                        <button>
+                        <button
                             key={cat.id}
                             type="button"
                             className={`cf-chip${on ? " cf-chip--on" : ""}`}
                             onClick={() => toggle(cat.id)}
+                        >
                             aria-pressed={on}
 
                             {cat.icon && (

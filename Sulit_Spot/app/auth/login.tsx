@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, SafeAreaView } from "react-native";
-import { useRouter } from 'expo-router';
 import { Colors, FontSizes, Spacing } from '@/constants/theme';
+import { useRouter } from 'expo-router';
+import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function LoginPage() {
     const router = useRouter();
